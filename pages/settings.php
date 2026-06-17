@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="form-group">
             <label>Profile Image (Leave blank to keep current)</label>
             <div style="margin-bottom: 10px;">
-                <img src="../<?= htmlspecialchars($settings->profile_image) ?>" alt="Current Profile" style="height: 100px; border-radius: 10px;">
+                <img src="../<?= htmlspecialchars(str_replace(['uploads/', 'images/'], 'assets/img/', $settings->profile_image)) ?>" alt="Current Profile" style="height: 100px; border-radius: 10px;">
             </div>
             <input type="file" name="profile_image" accept="image/jpeg, image/png">
         </div>

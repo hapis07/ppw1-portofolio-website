@@ -96,7 +96,7 @@ foreach ($events as $row) {
                     </div>
                 </div>
                 <div class="col-lg-6 hero-image order-1 order-lg-2 text-center text-lg-end">
-                    <img src="<?= htmlspecialchars($settings->profile_image) ?>" alt="Profile Picture" class="img-fluid profile-img">
+                    <img src="<?= htmlspecialchars(str_replace(['images/', 'uploads/'], 'assets/img/', $settings->profile_image)) ?>" alt="Profile Picture" class="img-fluid profile-img">
                 </div>
             </div>
         </div>
@@ -130,6 +130,7 @@ foreach ($events as $row) {
                         <div class="portfolio-img position-relative h-100">
                             <?php 
                             $img_src = !empty($item['images']) ? $item['images'][0] : '';
+                            $img_src = str_replace(['uploads/', 'images/'], 'assets/img/', $img_src);
                             if (empty($img_src) || !file_exists($img_src)) {
                                 $img_src = "https://picsum.photos/seed/" . $item['id'] . "/800/600";
                             }
