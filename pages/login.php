@@ -11,7 +11,7 @@ if(isset($_SESSION['admin'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - Portfolio</title>
-    <link rel="stylesheet" href="../css/style.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?= time() ?>">
     <style>
         body {
             display: flex;
@@ -144,6 +144,6 @@ if(isset($_SESSION['admin'])) {
         <a href="../index.php" class="back-link">&larr; Back to Portfolio</a>
     </div>
 
-    <script src="../js/script.js"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
