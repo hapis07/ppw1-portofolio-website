@@ -12,13 +12,13 @@ $messages = $stmt->fetchAll();
 
 <div class="row g-4 mb-5">
     <div class="col-md-6">
-        <div class="card stat-card bg-transparent border-0 h-100">
+        <div class="card stat-card h-100">
             <h3 class="card-title">Total Events Managed</h3>
             <div class="number"><?= $totals->total_events ?></div>
         </div>
     </div>
     <div class="col-md-6">
-        <div class="card stat-card bg-transparent border-0 h-100">
+        <div class="card stat-card h-100">
             <h3 class="card-title">Total Inbox Messages</h3>
             <div class="number"><?= $totals->total_messages ?></div>
         </div>

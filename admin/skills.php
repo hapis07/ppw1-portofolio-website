@@ -86,7 +86,7 @@ if ($action == 'list') {
                 <tr>
                     <td><strong><?= htmlspecialchars($skill->name) ?></strong></td>
                     <td>
-                        <span class="badge bg-primary text-dark"><?= $skill->proficiency ?>%</span>
+                        <span class="badge" style="background: rgba(201,185,154,0.1); color: var(--primary); font-size: 0.95rem; font-weight: 500; border: 1px solid rgba(201,185,154,0.3);"><?= $skill->proficiency ?>%</span>
                     </td>
                     <td style="text-align: right;">
                         <a href="?action=edit&id=<?= $skill->id ?>" class="cms-action-btn btn-edit">Edit</a>

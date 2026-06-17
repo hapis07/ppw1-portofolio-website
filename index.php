@@ -87,9 +87,9 @@ foreach ($events as $row) {
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 hero-text order-2 order-lg-1">
-                    <span class="hero-label d-inline-block mb-3">Personal Portfolio</span>
-                    <h1 class="display-4 fw-bold mb-4"><?= htmlspecialchars($settings->hero_title) ?><br><span class="text-primary"><?= htmlspecialchars($settings->hero_highlight) ?></span></h1>
-                    <p class="lead text-muted mb-5"><?= htmlspecialchars($settings->hero_desc) ?></p>
+                    <span class="hero-label">Personal Portfolio</span>
+                    <h1><?= htmlspecialchars($settings->hero_title) ?><br><?= htmlspecialchars($settings->hero_highlight) ?></h1>
+                    <p><?= htmlspecialchars($settings->hero_desc) ?></p>
                     <div class="hero-actions d-flex flex-wrap gap-3">
                         <a href="#portfolio" class="btn btn-primary px-4 py-3">View My Work</a>
                         <a href="#contact" class="btn btn-outline px-4 py-3">Contact Me</a>
@@ -109,9 +109,9 @@ foreach ($events as $row) {
             <div class="row g-4 skills-container">
                 <?php foreach ($skills as $skill): ?>
                 <div class="col-md-6 col-lg-4">
-                    <div class="skill-row d-flex justify-content-between align-items-center p-3 rounded h-100">
-                        <span class="skill-name fw-medium"><?= htmlspecialchars($skill->name) ?></span>
-                        <span class="skill-pct text-primary fw-bold"><?= $skill->proficiency ?>%</span>
+                    <div class="skill-row d-flex justify-content-between align-items-center h-100">
+                        <span class="skill-name"><?= htmlspecialchars($skill->name) ?></span>
+                        <span class="skill-pct"><?= $skill->proficiency ?>%</span>
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -136,11 +136,11 @@ foreach ($events as $row) {
                             ?>
                             <img src="<?= htmlspecialchars($img_src) ?>" alt="<?= htmlspecialchars($item['title']) ?>" class="card-img-top w-100 h-100 object-fit-cover">
                             
-                            <div class="portfolio-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4">
+                            <div class="portfolio-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end">
                                 <div class="portfolio-info">
-                                    <h3 class="text-white mb-2 fs-4"><?= htmlspecialchars($item['title']) ?></h3>
-                                    <span class="meta-mono text-primary d-block mb-2 small text-uppercase tracking-wider"><?= htmlspecialchars($item['role']) ?> &mdash; <?= date('M Y', strtotime($item['event_date'])) ?></span>
-                                    <p class="desc text-white-50 mb-0 small line-clamp-2"><?= htmlspecialchars($item['description']) ?></p>
+                                    <h3><?= htmlspecialchars($item['title']) ?></h3>
+                                    <span class="meta-mono"><?= htmlspecialchars($item['role']) ?> &mdash; <?= date('M Y', strtotime($item['event_date'])) ?></span>
+                                    <p class="desc"><?= htmlspecialchars($item['description']) ?></p>
                                 </div>
                             </div>
                         </div>
@@ -156,33 +156,31 @@ foreach ($events as $row) {
         <div class="container">
             <div class="row g-5 align-items-center contact-container">
                 <div class="col-lg-5 contact-text">
-                    <h2 class="display-5 fw-bold mb-3">Get In Touch</h2>
-                    <p class="text-mono text-muted small text-uppercase tracking-wider">Let's build something beautiful together.</p>
+                    <h2>Get In Touch</h2>
+                    <p class="text-mono">Let's build something beautiful together.</p>
                 </div>
                 <div class="col-lg-7">
-                    <div class="card contact-wrapper bg-transparent border-0">
-                        <div class="card-body p-0">
-                            <form id="contactForm" class="contact-form p-4 p-md-5 rounded-4 border border-light-subtle">
-                                <div class="mb-4 form-group">
-                                    <label for="name" class="form-label text-muted small fw-medium">Name (Optional)</label>
-                                    <input type="text" id="name" name="name" class="form-control custom-input" placeholder="Your Name">
-                                </div>
-                                <div class="mb-4 form-group">
-                                    <label for="email" class="form-label text-muted small fw-medium">Email address</label>
-                                    <input type="email" id="email" name="email" class="form-control custom-input" placeholder="Your Email">
-                                    <small class="error-msg text-danger mt-1 d-block" id="emailError"></small>
-                                </div>
-                                <div class="mb-4 form-group">
-                                    <label for="message" class="form-label text-muted small fw-medium">Your Message</label>
-                                    <textarea id="message" name="message" rows="5" class="form-control custom-input" placeholder="Your Message"></textarea>
-                                    <small class="error-msg text-danger mt-1 d-block" id="messageError"></small>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100 py-3 d-flex justify-content-center align-items-center gap-2" id="submitBtn">
-                                    <span class="btn-text">Send Message</span>
-                                    <span class="btn-loader spinner-border spinner-border-sm" style="display: none;" role="status" aria-hidden="true"></span>
-                                </button>
-                            </form>
-                        </div>
+                    <div class="contact-wrapper">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name (Optional)</label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="Your Email">
+                                <small class="error-msg" id="emailError"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" rows="5" class="form-control" placeholder="Your Message"></textarea>
+                                <small class="error-msg" id="messageError"></small>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="submitBtn">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-loader spinner-border spinner-border-sm" style="display: none;" role="status" aria-hidden="true"></span>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
