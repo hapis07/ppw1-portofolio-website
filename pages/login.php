@@ -11,8 +11,6 @@ if(isset($_SESSION['admin'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - Portfolio</title>
-    <!-- Bootstrap 5 CSS (Minimal Usage) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css?v=<?= time() ?>">
     <style>
         body {
@@ -128,9 +126,8 @@ if(isset($_SESSION['admin'])) {
     <div class="login-wrapper">
         <h2>System Login</h2>
         <?php if(isset($_SESSION['error'])): ?>
-            <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+            <div style="padding: 15px; background: rgba(255,161,161,0.1); color: var(--error); border: 1px solid var(--error); border-radius: 10px; margin-bottom: 25px; text-align: center; font-size: 0.9rem;">
                 <?= $_SESSION['error']; unset($_SESSION['error']); ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <?php endif; ?>
         <form action="auth.php" method="POST">
@@ -148,7 +145,5 @@ if(isset($_SESSION['admin'])) {
     </div>
 
     <script src="../js/script.js"></script>
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
