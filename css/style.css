@@ -259,9 +259,7 @@ p {
     pointer-events: none;
 }
 
-.hero-grid {
-    /* Now using Bootstrap row */
-}
+
 
 .hero-text {
     z-index: 2;
@@ -348,9 +346,7 @@ p {
 }
 
 /* Skills Section */
-.skills-container {
-    /* Using Bootstrap row */
-}
+
 
 .skill-row {
     display: flex;
@@ -385,9 +381,7 @@ p {
 }
 
 /* Portfolio Section */
-.portfolio-grid {
-    /* Using Bootstrap row */
-}
+
 
 /* Stagger effect: push even items down */
 @media (min-width: 768px) {
@@ -478,9 +472,7 @@ p {
 }
 
 /* Contact Section */
-.contact-container {
-    /* Using Bootstrap grid */
-}
+
 
 .contact-text h2 {
     font-size: 4rem;
