@@ -13,6 +13,8 @@ if (!isset($_SESSION['admin'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Portfolio</title>
+    <!-- Bootstrap 5 CSS (Minimal Usage) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css?v=<?= time() ?>">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -285,12 +287,12 @@ if (!isset($_SESSION['admin'])) {
     </aside>
 
     <!-- Main Content wrapper -->
-    <main class="admin-main">
-        <div class="top-navbar">
+    <main class="admin-main flex-grow-1">
+        <div class="top-navbar d-flex justify-content-between align-items-center">
             <div class="user-info">
                 Welcome back, <span style="color: var(--primary);"><?= htmlspecialchars($_SESSION['admin']) ?></span>
             </div>
             <a href="../index.php" class="btn btn-outline" target="_blank" style="padding: 10px 24px;">View Live Site</a>
         </div>
         
-        <div class="content-area">
+        <div class="container-fluid content-area">
