@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/header.php';
+require_once '../includes/header.php';
 
 $action = $_GET['action'] ?? 'list';
 $id = $_GET['id'] ?? 0;
@@ -129,4 +129,4 @@ if ($action == 'list') {
     </div>
 <?php endif; ?>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once '../includes/footer.php'; ?>

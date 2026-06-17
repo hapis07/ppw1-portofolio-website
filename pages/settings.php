@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/header.php';
+require_once '../includes/header.php';
 
 // Fetch current settings
 $stmt = $pdo->query("SELECT * FROM settings LIMIT 1");
@@ -96,4 +96,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
 </div>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once '../includes/footer.php'; ?>

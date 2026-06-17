@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/header.php';
+require_once '../includes/header.php';
 
 // Get Totals using Functions
 $stmt = $pdo->query("SELECT hitung_total_event() AS total_events, hitung_total_pesan() AS total_messages");
@@ -53,4 +53,4 @@ $messages = $stmt->fetchAll();
     </table>
 </div>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once '../includes/footer.php'; ?>

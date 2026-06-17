@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/header.php';
+require_once '../includes/header.php';
 
 $action = $_GET['action'] ?? 'list';
 $id = $_GET['id'] ?? 0;
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $file_info = pathinfo($image['name']);
             $ext = strtolower($file_info['extension']);
             if (in_array($ext, $allowed_exts)) {
-                $upload_dir = '../uploads/';
+                $upload_dir = '../assets/img/';
                 if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
                 
                 $new_filename = uniqid('event_', true) . '.' . $ext;
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 if (move_uploaded_file($image['tmp_name'], $destination)) {
                     $stmt = $pdo->prepare("INSERT INTO event_galleries (event_id, image_path) VALUES (?, ?)");
-                    $image_path_db = 'uploads/' . $new_filename;
+                    $image_path_db = 'assets/img/' . $new_filename;
                     $stmt->execute([$id, $image_path_db]);
                     $msg = 'Image uploaded to gallery.';
                     $msgType = 'success';
@@ -215,4 +215,4 @@ if ($action == 'list') {
     <?php endif; ?>
 <?php endif; ?>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once '../includes/footer.php'; ?>

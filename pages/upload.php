@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../config/database.php';
+require_once '../includes/config.php';
 
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $ext = strtolower($file_info['extension']);
 
         if (in_array($ext, $allowed_exts)) {
-            $upload_dir = '../uploads/';
+            $upload_dir = '../assets/img/';
             
             // Create directory if not exists
             if (!is_dir($upload_dir)) {
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Insert into database
                 try {
                     $stmt = $pdo->prepare("INSERT INTO event_galleries (event_id, image_path) VALUES (:event_id, :image_path)");
-                    $image_path_db = 'uploads/' . $new_filename;
+                    $image_path_db = 'assets/img/' . $new_filename;
                     $stmt->bindParam(':event_id', $event_id);
                     $stmt->bindParam(':image_path', $image_path_db);
                     

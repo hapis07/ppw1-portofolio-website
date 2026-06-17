@@ -1,5 +1,5 @@
 <?php
-require_once 'config/database.php';
+require_once 'includes/config.php';
 
 // Fetch Settings
 $stmt = $pdo->query("SELECT * FROM settings LIMIT 1");
@@ -10,7 +10,7 @@ if (!$settings) {
         'hero_title' => 'Hi, I\'m',
         'hero_highlight' => 'A Passionate Event Organizer',
         'hero_desc' => 'A university student with high-level communication skills, public speaking expertise, and extensive experience in coordinating successful events.',
-        'profile_image' => 'images/profile.png'
+        'profile_image' => 'assets/img/profile.png'
     ];
 }
 
@@ -48,7 +48,7 @@ foreach ($events as $row) {
     <title>Personal Portfolio - Event Organizer</title>
     <!-- Bootstrap 5 CSS (Minimal Usage) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="assets/css/style.css?v=<?= time() ?>">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 </head>
@@ -76,7 +76,7 @@ foreach ($events as $row) {
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0"><a href="admin/login.php" class="btn btn-outline w-100">Admin</a></li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0"><a href="pages/login.php" class="btn btn-outline w-100">Admin</a></li>
                 </ul>
             </div>
         </div>
@@ -197,7 +197,7 @@ foreach ($events as $row) {
     <!-- Snackbar -->
     <div id="snackbar">Message sent successfully!</div>
 
-    <script src="js/script.js"></script>
+    <script src="assets/js/script.js"></script>
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

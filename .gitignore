@@ -1,7 +1,8 @@
 vendor/
 .env
 node_modules/
-config/database.local.php
+includes/config.php
+assets/img/
 .idea/
 .vscode/
 *.log

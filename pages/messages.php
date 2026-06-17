@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/header.php';
+require_once '../includes/header.php';
 
 $action = $_GET['action'] ?? 'list';
 $id = $_GET['id'] ?? 0;
@@ -93,4 +93,4 @@ $messages = $stmt->fetchAll();
     </table>
 </div>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once '../includes/footer.php'; ?>

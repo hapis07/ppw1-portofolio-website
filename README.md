@@ -25,15 +25,16 @@ Aplikasi memiliki dua bagian utama:
 1. Pastikan Anda telah menginstal server lokal seperti **XAMPP** atau **Laragon**.
 2. Pindahkan folder proyek ke dalam direktori root server (`htdocs` untuk XAMPP, `www` untuk Laragon).
 3. Buat database baru di MySQL (misal: `uas_portofolio`).
-4. Import struktur database dari file `portfolio.sql` (jika tersedia) menggunakan phpMyAdmin.
-5. Konfigurasikan koneksi database pada file `config/database.php` sesuai dengan environment lokal Anda.
+4. Import struktur database dari file `database.sql` (jika tersedia) menggunakan phpMyAdmin.
+5. Konfigurasikan koneksi database pada file `includes/config.php` sesuai dengan environment lokal Anda.
 6. Akses aplikasi melalui web browser di `http://localhost/UAS_Portofolio`.
-7. Untuk mengelola data, akses **Admin Panel** melalui halaman utama atau `http://localhost/UAS_Portofolio/admin/login.php`.
+7. Untuk mengelola data, akses **Admin Panel** melalui halaman utama atau `http://localhost/UAS_Portofolio/pages/login.php`.
    - **Default Login Admin:** (sesuai akun yang didaftarkan di database, misal: `admin` / `admin123`)
 
 ### Struktur Proyek Utama
-* `/admin` : Fitur manajemen CRUD dan dashboard admin
-* `/config` : Setup dan koneksi database PDO
-* `/css`, `/js`, `/images` : File aset (Cascading Style Sheets, Javascript, Gambar)
+* `assets/` : File aset pendukung (css, js, img)
+* `includes/` : File konfigurasi database dan potongan layout (header/footer)
+* `pages/` : Halaman-halaman PHP khusus administrator (CRUD dan auth)
 * `index.php` : Halaman pendaratan publik (Frontend)
+* `database.sql` : Skema database untuk di-import
 * `.gitignore` & `README.md` : Standarisasi dokumentasi & manajemen versi Git
