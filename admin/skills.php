@@ -65,7 +65,10 @@ if ($action == 'list') {
 <hr style="border: 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin: 25px 0;">
 
 <?php if($msg): ?>
-    <div class="alert-<?= $msgType ?>"><?= htmlspecialchars($msg) ?></div>
+    <div class="alert alert-<?= $msgType ?> alert-dismissible fade show" role="alert">
+        <?= htmlspecialchars($msg) ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 <?php endif; ?>
 
 <?php if ($action == 'list'): ?>
@@ -83,7 +86,7 @@ if ($action == 'list') {
                 <tr>
                     <td><strong><?= htmlspecialchars($skill->name) ?></strong></td>
                     <td>
-                        <?= $skill->proficiency ?>%
+                        <span class="badge bg-primary text-dark"><?= $skill->proficiency ?>%</span>
                     </td>
                     <td style="text-align: right;">
                         <a href="?action=edit&id=<?= $skill->id ?>" class="cms-action-btn btn-edit">Edit</a>

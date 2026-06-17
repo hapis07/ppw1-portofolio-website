@@ -108,7 +108,10 @@ if ($action == 'list') {
 <hr style="border: 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin: 25px 0;">
 
 <?php if($msg): ?>
-    <div class="alert-<?= $msgType ?>"><?= htmlspecialchars($msg) ?></div>
+    <div class="alert alert-<?= $msgType ?> alert-dismissible fade show" role="alert">
+        <?= htmlspecialchars($msg) ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 <?php endif; ?>
 
 <?php if ($action == 'list'): ?>
