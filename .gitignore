@@ -1,0 +1,12 @@
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Script artifact (not part of project)
+script_video_uas.md
