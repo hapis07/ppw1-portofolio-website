@@ -260,10 +260,7 @@ p {
 }
 
 .hero-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 80px;
-    align-items: center;
+    /* Now using Bootstrap row */
 }
 
 .hero-text {
@@ -352,8 +349,7 @@ p {
 
 /* Skills Section */
 .skills-container {
-    display: flex;
-    flex-direction: column;
+    /* Using Bootstrap row */
 }
 
 .skill-row {
@@ -373,7 +369,7 @@ p {
 
 .skill-name {
     font-family: var(--font-sans);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-main);
     text-transform: uppercase;
@@ -388,16 +384,16 @@ p {
     opacity: 0.6;
 }
 
-/* Portfolio Section (Staggered Grid) */
+/* Portfolio Section */
 .portfolio-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    /* Using Bootstrap row */
 }
 
 /* Stagger effect: push even items down */
-.portfolio-card:nth-child(even) {
-    margin-top: 100px;
+@media (min-width: 768px) {
+    .portfolio-grid > div:nth-child(even) {
+        margin-top: 80px;
+    }
 }
 
 .portfolio-card {
@@ -483,9 +479,7 @@ p {
 
 /* Contact Section */
 .contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
+    /* Using Bootstrap grid */
 }
 
 .contact-text h2 {
@@ -550,7 +544,6 @@ footer {
 
 /* Responsive */
 @media (max-width: 992px) {
-    .hero-grid { flex-direction: column; text-align: center; gap: 40px; }
     .hero-text { max-width: 100%; }
     .hero-text h1 { font-size: 3rem; }
     .hero-text p { max-width: 100%; }
@@ -558,17 +551,12 @@ footer {
     .hero-actions { justify-content: center; }
     .hero-image { position: relative; opacity: 1; mix-blend-mode: normal; }
     .hero-image::before { display: none; }
-    .hero-image img { width: 100%; max-width: 350px; height: 450px; }
+    .hero-image img { width: 100%; max-width: 350px; height: 450px; margin: 0 auto; }
     
-    .portfolio-grid { grid-template-columns: 1fr; gap: 40px; }
-    .portfolio-card:nth-child(even) { margin-top: 0; }
     .portfolio-img { height: 400px; }
     
-    .contact-container { grid-template-columns: 1fr; gap: 50px; }
-    
-    .nav-links { display: none; }
-    
-    .hamburger { display: block; }
+    /* Let Bootstrap handle nav-links collapse */
+    .nav-links { display: flex; flex-direction: column; background: var(--bg-main); padding: 20px; text-align: center; gap: 20px;}
 }
 
 /* Loader */
