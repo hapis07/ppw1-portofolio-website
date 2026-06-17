@@ -1,12 +1,7 @@
-# IDE
-.vscode/
+vendor/
+.env
+node_modules/
+config/database.local.php
 .idea/
-*.swp
-*.swo
-
-# OS
-Thumbs.db
-.DS_Store
-
-# Script artifact (not part of project)
-script_video_uas.md
+.vscode/
+*.log
