@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Handle File Upload
     if (isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] == UPLOAD_ERR_OK) {
-        $upload_dir = '../images/';
+        $upload_dir = '../assets/img/';
         if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
         
         $file_name = time() . '_' . basename($_FILES['profile_image']['name']);
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (in_array($imageFileType, ['jpg', 'png', 'jpeg'])) {
             if (move_uploaded_file($_FILES['profile_image']['tmp_name'], $target_file)) {
-                $profile_image = 'images/' . $file_name;
+                $profile_image = 'assets/img/' . $file_name;
             } else {
                 $msg = 'Failed to upload image.';
                 $msgType = 'error';
