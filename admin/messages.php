@@ -29,7 +29,10 @@ $messages = $stmt->fetchAll();
 <hr style="border: 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin: 25px 0;">
 
 <?php if($msg): ?>
-    <div class="alert-<?= $msgType ?>"><?= htmlspecialchars($msg) ?></div>
+    <div class="alert alert-<?= $msgType ?> alert-dismissible fade show" role="alert">
+        <?= htmlspecialchars($msg) ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 <?php endif; ?>
 
 <div class="cms-table-wrapper">
@@ -52,9 +55,36 @@ $messages = $stmt->fetchAll();
                 </td>
                 <td style="line-height: 1.4;"><?= nl2br(htmlspecialchars($m->message)) ?></td>
                 <td style="text-align: right;">
+                    <button type="button" class="cms-action-btn btn-edit" data-bs-toggle="modal" data-bs-target="#msgModal<?= $m->id ?>">View</button>
                     <a href="?action=delete&id=<?= $m->id ?>" class="cms-action-btn btn-delete" onclick="return confirm('Are you sure you want to delete this message?')">Delete</a>
                 </td>
             </tr>
+
+            <!-- View Message Modal -->
+            <div class="modal fade" id="msgModal<?= $m->id ?>" tabindex="-1" aria-hidden="true" data-bs-theme="dark">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background: var(--bg-secondary); border: 1px solid var(--border-light);">
+                  <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title" style="color: var(--text-main);">Message Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="mb-3">
+                        <strong style="color: var(--primary);">From:</strong> <?= htmlspecialchars($m->sender_name) ?> <br>
+                        <strong style="color: var(--primary);">Email:</strong> <?= htmlspecialchars($m->sender_email) ?> <br>
+                        <strong style="color: var(--primary);">Date:</strong> <?= date('d M Y, H:i', strtotime($m->submitted_at)) ?>
+                    </div>
+                    <div class="p-3 rounded" style="background: rgba(255,255,255,0.03); color: var(--text-main); font-family: var(--font-sans); line-height: 1.6;">
+                        <?= nl2br(htmlspecialchars($m->message)) ?>
+                    </div>
+                  </div>
+                  <div class="modal-footer border-top-0 pt-0">
+                    <button type="button" class="btn btn-outline" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <?php endforeach; ?>
             <?php if(count($messages) == 0): ?>
             <tr><td colspan="4" style="text-align:center;">No messages found.</td></tr>

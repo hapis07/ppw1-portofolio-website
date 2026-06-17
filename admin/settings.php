@@ -64,7 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <h3 class="section-heading">Manage Hero Settings</h3>
 
 <?php if($msg): ?>
-    <div class="alert-<?= $msgType ?>"><?= htmlspecialchars($msg) ?></div>
+    <div class="alert alert-<?= $msgType ?> alert-dismissible fade show" role="alert">
+        <?= htmlspecialchars($msg) ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 <?php endif; ?>
 
 <div class="cms-form">
