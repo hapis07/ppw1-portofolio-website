@@ -125,7 +125,7 @@ foreach ($events as $row) {
             <h2 class="section-title mb-5">Featured Events</h2>
             <div class="row g-4 portfolio-grid">
                 <?php foreach ($portfolio as $item): ?>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-md-6">
                     <div class="card portfolio-card bg-transparent border-0 h-100 overflow-hidden rounded-4">
                         <div class="portfolio-img position-relative h-100">
                             <?php 
@@ -154,7 +154,7 @@ foreach ($events as $row) {
     <!-- Contact Section -->
     <section id="contact" class="contact section">
         <div class="container">
-            <div class="row g-5 align-items-center contact-container">
+            <div class="row g-5 contact-container">
                 <div class="col-lg-5 contact-text">
                     <h2>Get In Touch</h2>
                     <p class="text-mono">Let's build something beautiful together.</p>
